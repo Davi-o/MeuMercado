@@ -56,11 +56,11 @@ public class ProdutoDAO {
         }// close catch
     }// close method
     
-    public void deletarProduto(byte id) throws SQLException {
+    public void deletarProduto(int id) throws SQLException {
         Connection con = DBConnection.createConnection();
         Statement stat = con.createStatement();
         try {
-            String sql = "delete from player where produto_id=" + id;
+            String sql = "delete from estoque.produto where id_produto=" + id;
             stat.execute(sql);
         } catch (SQLException e) {
             e.printStackTrace();
@@ -110,7 +110,7 @@ public class ProdutoDAO {
             }
 
             ResultSet rs = stat.executeQuery(sql);
-            ArrayList<Produto> player = new ArrayList<>();
+            ArrayList<Produto> produto = new ArrayList<>();
             while (rs.next()) {
                 Produto p = new Produto();
                 p.setProdutoId(rs.getInt("id_produto"));
@@ -118,9 +118,9 @@ public class ProdutoDAO {
                 p.setQtdEstoque(rs.getInt("qtd_estoque"));
                 p.setValor(rs.getDouble("valor_unitario"));
                 p.setTipoProduto(rs.getString("tipo_produto"));
-                player.add(p);
+                produto.add(p);
             }//fecha while
-            return player;
+            return produto;
         } catch (SQLException e) {
             throw new SQLException("Erro ao procurar Produto! " + e.getMessage());
         } finally {

@@ -235,7 +235,7 @@ public class Estoque extends javax.swing.JInternalFrame {
             }
             ProdutoServices cs = ServicesFactory.getProdutosServices();
             String id = jtableProduto.getValueAt(selectedRow, 0).toString();
-            cs.deletePlayer(Byte.parseByte(id));
+            cs.deletePlayer(Integer.parseInt(id));
             JOptionPane.showMessageDialog(this, "Produto excluído com sucesso!");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Erro!" + e.getMessage());

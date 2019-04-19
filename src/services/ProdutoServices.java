@@ -22,7 +22,7 @@ public class ProdutoServices {
         return playerDAO.procurarProduto();
     }// close method
 
-    public void deletePlayer(byte id) throws SQLException {
+    public void deletePlayer(int id) throws SQLException {
         ProdutoDAO playerDAO = DAOFactory.getProdutoDAO();
         playerDAO.deletarProduto(id);;
     }// close method
