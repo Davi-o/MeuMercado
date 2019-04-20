@@ -90,7 +90,7 @@ public class Estoque extends javax.swing.JInternalFrame {
             }
         });
 
-        jcFilter.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ID", "Nome", "Telefone", "Email", "Idade" }));
+        jcFilter.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ID", "Nome", "Tipo", "Qtd", "Valor" }));
 
         jbDelete.setText("Deletar");
         jbDelete.addActionListener(new java.awt.event.ActionListener() {
@@ -178,7 +178,7 @@ public class Estoque extends javax.swing.JInternalFrame {
 
             } else {
                 ArrayList<Produto> player = new ArrayList<>();
-                player = ps.filter(search, filter);
+                player = ps.filtrarProdutos(search, filter);
 
                 for (int i = 0; i < player.size(); i++) {
                     dtm.addRow(new String[]{
@@ -206,8 +206,8 @@ public class Estoque extends javax.swing.JInternalFrame {
             }
             String id = jtableProduto.getValueAt(selectedRow, 0).toString();
             String nome = jtableProduto.getValueAt(selectedRow, 1).toString();
-            String estoque = jtableProduto.getValueAt(selectedRow, 2).toString();
-            String tipo = jtableProduto.getValueAt(selectedRow, 4).toString();
+            String tipo = jtableProduto.getValueAt(selectedRow, 2).toString();
+            String estoque = jtableProduto.getValueAt(selectedRow, 4).toString();
             String valor = jtableProduto.getValueAt(selectedRow, 3).toString();
 
             Produto p = new Produto();
@@ -218,7 +218,7 @@ public class Estoque extends javax.swing.JInternalFrame {
             p.setValor(Double.parseDouble(valor));
             
             ProdutoServices ps = ServicesFactory.getProdutosServices();
-            ps.alterPlayer(p);
+            ps.alterarProduto(p);
 
             JOptionPane.showMessageDialog(this, "Produto alterado com sucesso");
         } catch (Exception e) {
@@ -235,7 +235,7 @@ public class Estoque extends javax.swing.JInternalFrame {
             }
             ProdutoServices cs = ServicesFactory.getProdutosServices();
             String id = jtableProduto.getValueAt(selectedRow, 0).toString();
-            cs.deletePlayer(Integer.parseInt(id));
+            cs.deletarProduto(Integer.parseInt(id));
             JOptionPane.showMessageDialog(this, "Produto excluído com sucesso!");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Erro!" + e.getMessage());
@@ -250,7 +250,7 @@ public class Estoque extends javax.swing.JInternalFrame {
         try {
             ProdutoServices ps = ServicesFactory.getProdutosServices();
             ArrayList<Produto> player = new ArrayList<>();
-            player = ps.searchPlayers();
+            player = ps.procurarProdutos();
             // test //  
             System.out.println("TESTE: " + player.toString());
             for (int i = 0; i < player.size(); i++) {

@@ -12,28 +12,28 @@ import model.Produto;
  * @since 31/03/2019
  */
 public class ProdutoServices {
-    public void registPlayer(Produto p)throws SQLException{
-        ProdutoDAO playerDAO = DAOFactory.getProdutoDAO();
-        playerDAO.cadastrarProduto(p);
+    public void cadProduto(Produto p)throws SQLException{
+        ProdutoDAO produtoDAO = DAOFactory.getProdutoDAO();
+        produtoDAO.cadastrarProduto(p);
     }// close method
     
-    public ArrayList<Produto> searchPlayers() throws SQLException {
-        ProdutoDAO playerDAO = DAOFactory.getProdutoDAO();
-        return playerDAO.procurarProduto();
+    public ArrayList<Produto> procurarProdutos() throws SQLException {
+        ProdutoDAO ProdutoDAO = DAOFactory.getProdutoDAO();
+        return ProdutoDAO.procurarProduto();
     }// close method
 
-    public void deletePlayer(int id) throws SQLException {
-        ProdutoDAO playerDAO = DAOFactory.getProdutoDAO();
-        playerDAO.deletarProduto(id);;
+    public void deletarProduto(int id) throws SQLException {
+        ProdutoDAO produtoDAO = DAOFactory.getProdutoDAO();
+        produtoDAO.deletarProduto(id);;
     }// close method
     
-    public void alterPlayer(Produto p) throws SQLException {
-        ProdutoDAO playerDAO = DAOFactory.getProdutoDAO();
-        playerDAO.alterarProduto(p);
+    public void alterarProduto(Produto p) throws SQLException {
+        ProdutoDAO produtoDAO = DAOFactory.getProdutoDAO();
+        produtoDAO.alterarProduto(p);
     }// close method
     
-    public ArrayList<Produto> filter(String search, String filter) throws SQLException {
-        ProdutoDAO playerDAO = DAOFactory.getProdutoDAO();
-        return playerDAO.filtrar(search, filter);
+    public ArrayList<Produto> filtrarProdutos(String search, String filter) throws SQLException {
+        ProdutoDAO produtoDAO = DAOFactory.getProdutoDAO();
+        return produtoDAO.filtrar(search, filter);
     }//fecha método
 }// class closing

@@ -172,7 +172,7 @@ public class CadProduto extends javax.swing.JInternalFrame {
             p.setValor(Double.parseDouble(jtValor.getText()));
             
             ProdutoServices ps = ServicesFactory.getProdutosServices();
-            ps.registPlayer(p);
+            ps.cadProduto(p);
             
             JOptionPane.showMessageDialog(rootPane, "Produto cadastrado com sucesso!", "Sucesso", JOptionPane.PLAIN_MESSAGE);
         } catch (Exception e) {

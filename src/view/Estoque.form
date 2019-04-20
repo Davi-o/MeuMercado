@@ -146,9 +146,9 @@
               <StringArray count="5">
                 <StringItem index="0" value="ID"/>
                 <StringItem index="1" value="Nome"/>
-                <StringItem index="2" value="Telefone"/>
-                <StringItem index="3" value="Email"/>
-                <StringItem index="4" value="Idade"/>
+                <StringItem index="2" value="Tipo"/>
+                <StringItem index="3" value="Qtd"/>
+                <StringItem index="4" value="Valor"/>
               </StringArray>
             </Property>
           </Properties>
