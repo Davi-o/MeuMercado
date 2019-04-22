@@ -79,7 +79,7 @@ public class ProdutoDAO {
             String sql = "";
             sql = "update produto "
                 + "set nome_produto='"+p.getNomeProduto()+"',tipo_produto='"+p.getTipoProduto()+"',qtd_estoque='"+p.getQtdEstoque()+"',valor_unitario='"+p.getValor()+"' where id_produto='"+p.getProdutoId()+"'";
-            stat.execute(sql);
+            stat.executeUpdate(sql);
         } catch (SQLException e) {
             throw new SQLException(
                     "Erro ao alterar! " + e.getMessage());
