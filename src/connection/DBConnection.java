@@ -11,9 +11,9 @@ import java.sql.SQLException;
  */
 public class DBConnection {
 
-    private static String url = "jdbc:mysql://localhost:3306/estoque?useTimezone=true&serverTimezone=UTC";
+    private static String url = "jdbc:mysql://localhost:3306/estoque?useTimezone=true&serverTimezone=UTC";// db estoque ou meu_mercado
     private static String user = "root";
-    private static String password = "root";
+    private static String password = "";// ou root
 
     public static Connection createConnection() throws SQLException {
         Connection connection = null;
